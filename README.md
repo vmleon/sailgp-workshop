@@ -1,1 +1,0 @@
-# SailGP Workshop
