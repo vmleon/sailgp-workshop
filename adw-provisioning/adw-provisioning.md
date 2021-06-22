@@ -4,136 +4,107 @@
 
 ## Introduction
 
-XXX
+This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you provision a new ADW instance.
 
-[](youtube:Sf5MkI9pTn0)
+*Note: While this lab uses ADW, the steps are identical for creating an ATP database.*
 
-Estimated Lab Time: XX minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- XXX.
-- XXX.
-- XXX.
+-   Learn how to provision a new Autonomous Database
 
 ### Prerequisites
 
-- Oracle Free Trial Account
-- XXX
+To complete this lab, you need to have the following:
 
+- Logged into your Oracle Cloud Account
 
-## **STEP 1:** XXX
+## **STEP 1**: Provision ADW
 
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
+1. Go to **Menu** > **Oracle Database** > **Autonomous Data Warehouse**.
 
-   xxx.
+   ![ADW Menu](images/adw_menu.png)
 
-2. Go to **Menu** > **XXX** > **XXX**.
+2. Click **Create Autonomous Database**.
 
-   ![pic1](images/pic_1.png)
+   ![ADW Create Button](images/adw_create_button.png)
 
-   > Note: XXX.
+3. Fill the first part of the provisioning form with the following values.
 
-3. Click **XXX**.
+   ![ADW Form 1](images/adw_form_1.png)
 
-   ![pic2](images/pic_2.png)
+      - Compartment: `root` (You can select the root compartment, if not already selected)
+      - Display name: `sailgp`
+      - Database name: `sailgp`
+      - Choose a workload type: `Data Warehouse`
+      - Choose a deployment type: `Shared Infrastructure`
 
-4. Select **XXX** and click **XXX**.
+4. Fill the next part of the provisioning form with the following values.
 
-   ![pic3](images/pic_3.png)
+   ![ADW Form 2](images/adw_form_2.png)
 
-5. Change the **XXX** and leave everything else as **default**.
+      - Always Free: Turn it `on`, but it will work if you leave it `off` like in the screeshot.
+      - Choose database version: `19c`, if your region has 21c it will equally work.
+      - OCPU count: `1` or default value.
+      - Storage (TB): `1` or default value.
+      - Auto Scaling: `on` or default value.
 
-      - XXX Name: `xxx`
+5. Fill the last part of the provisioning form with the following values.
 
-6. Click **Next**.
+   ![ADW Form 3](images/adw_form_3.png)
 
-   ![pic4](images/pic_4.png)
+      - Password: `OracleCloud12345!` 
+      - Confirm password: `OracleCloud12345!`
+      - Access Type: `Secure access from everywhere`
+      - Choose a license type: `License Included`
 
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
+6. Click **Create Autonomous Database**.
 
-8. On **XXX**, create `xxxx` xxxx.
+   We will see the new ADW Database provisioning.
 
-      ```
-      <copy>bash command</copy>
-      ```
+   Wait for the icon to change from:
 
-## **STEP 2:** XXX
+   ![AWD Provisioning](images/adw_provisioning_state.png)
 
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
+   To `ACTIVE` state:
 
-   xxx.
+   ![AWD Active](images/adw_active_state.png)
 
-2. Go to **Menu** > **XXX** > **XXX**.
+7. Your Autonomous Data Warehouse is ready to use.
 
-   ![pic1](images/pic_1.png)
+## **STEP 2**: Download Wallet
 
-   > Note: XXX.
+1. We will download the wallet file. The wallet file (client credentials), along with the database user ID and password, provides access to your Autonomous Database in the most secure way possible.
+   
+   > NOTE: Store wallet files in a secure location. Share wallet files only with authorized users.
 
-3. Click **XXX**.
+2. On the ADW detail page, click **Download**.
 
-   ![pic2](images/pic_2.png)
+   ![AWD DB Connection](images/adw_db_connection.png)
 
-4. Select **XXX** and click **XXX**.
+3. Click **Download Wallet** on Database Connection side-screen.
 
-   ![pic3](images/pic_3.png)
+   ![AWD Download Wallet](images/adw_download_wallet.png)
 
-5. Change the **XXX** and leave everything else as **default**.
+4. Type the password, confirm the password by typing it again and click **Download**.
 
-      - XXX Name: `xxx`
+      - Password: `sailgp12345!`
+      - Confirm Password: `sailgp12345!`
 
-6. Click **Next**.
+   ![AWD Wallet Password](images/adw_wallet_password.png)
 
-   ![pic4](images/pic_4.png)
+5. Click **Close**. A `ZIP` file will start downloading.
 
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
+   ![AWD Download Wallet](images/adw_download_wallet.png)
 
-8. On **XXX**, create `xxxx` xxxx.
+## **STEP 3**: Import Data
 
-      ```
-      <copy>bash command</copy>
-      ```
+1. XXX
 
-## **STEP 3:** XXX
-
-
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
-
-   xxx.
-
-2. Go to **Menu** > **XXX** > **XXX**.
-
-   ![pic1](images/pic_1.png)
-
-   > Note: XXX.
-
-3. Click **XXX**.
-
-   ![pic2](images/pic_2.png)
-
-4. Select **XXX** and click **XXX**.
-
-   ![pic3](images/pic_3.png)
-
-5. Change the **XXX** and leave everything else as **default**.
-
-      - XXX Name: `xxx`
-
-6. Click **Next**.
-
-   ![pic4](images/pic_4.png)
-
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
-
-8. On **XXX**, create `xxxx` xxxx.
-
-      ```
-      <copy>bash command</copy>
-      ```
-
-Congratulations! You are ready to go to the next Lab!
+Please *proceed to the next lab*.
 
 ## **Acknowledgements**
 
