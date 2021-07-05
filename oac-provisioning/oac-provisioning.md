@@ -4,136 +4,83 @@
 
 ## Introduction
 
-XXX
+During this lab you will deploy an Oracle Analytics Cloud instance on Oracle Cloud Infrastructure.
+
+> Provisioning Oracle analytics Cloud can take up to 40 minutes.
 
 [](youtube:Sf5MkI9pTn0)
 
-Estimated Lab Time: XX minutes
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- XXX.
-- XXX.
-- XXX.
+- Login as a federated user.
+- Create an Oracle Analytics Cloud Instance.
 
 ### Prerequisites
 
-- Oracle Free Trial Account
-- XXX
+- Oracle Free Trial Account.
 
 
-## **STEP 1:** XXX
+## **STEP 1:** Federated User Login
 
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
+1. Oracle Cloud has two types of users:
 
-   xxx.
+   - **OCI Native users**: represent users like you, or applications that can perform operations on OCI native services.
+   - **OCI Federated Users** with Identity Cloud Service (IDCS). IDCS is a Identity Provider included with Oracle Cloud to manage Identity services beyond basic users, groups and roles capabilities. For example, OAuth2.0, Multi Factor Authentication, etc.
+   
+   > NOTE: OAC requires a Federated user.
 
-2. Go to **Menu** > **XXX** > **XXX**.
+2. Go to **Profile** on the top-right corner and make sure your user has the name **oracleidentitycloudservice/** appended before your email, like in the picture:
 
-   ![pic1](images/pic_1.png)
+   ![Federated user](images/oac_profile_federated.png)
 
-   > Note: XXX.
+3. Don't you see **oracleidentitycloudservice/** before your email? Then, you need to Sign out and log in as a federated user, following these steps.
 
-3. Click **XXX**.
+4. Go to <a href="https://cloud.oracle.com" target="\_blank">cloud.oracle.com</a>, type your **Cloud Account Name** and click **Next**.
 
-   ![pic2](images/pic_2.png)
+   ![Cloud Account Name](images/oac_login_cloud_account_name.png)
 
-4. Select **XXX** and click **XXX**.
+5. Login with user and password.
 
-   ![pic3](images/pic_3.png)
+   ![User and Password](images/oac_login_user_password.png)
 
-5. Change the **XXX** and leave everything else as **default**.
+6. At this point, you should have **oracleidentitycloudservice/** before your email on the Profile popup, on the top-right corner.
 
-      - XXX Name: `xxx`
+   For more information about federated users, see [User Provisioning for Federated Users](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/usingscim.htm).
 
-6. Click **Next**.
+## **STEP 2:** Create an Oracle Analytics Cloud (OAC) Instance
 
-   ![pic4](images/pic_4.png)
+1. Return to the Home Page and go to the **Menu** > **Analytics & AI** > **Analytics Cloud**.
 
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
+   ![OAC Menu](images/oac_menu.png)
 
-8. On **XXX**, create `xxxx` xxxx.
+2. Make sure you select the `root` Compartment and click **Create Instance**.
 
-      ```
-      <copy>bash command</copy>
-      ```
+   ![OAC Create Button](images/oac_create_button.png)
 
-## **STEP 2:** XXX
+3. Fill the web form with the following information and click **Create**:
 
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
+   - **Compartment**: `root` compartment, unless you have permissions and experience selecting a different one.
+   - **Instance Name**: `SailGPAnalytics`
+   - **Description**: `Analytics Instance for SailGP Workshop`
+   - **Feature Set**: `Enterprise Analytics` (important)
+   - **Capacity**: `OCPU` and `1 - Non Production`
+   - **License Type**: `License Included`
 
-   xxx.
+   ![OAC Form](images/oac_form.png)
 
-2. Go to **Menu** > **XXX** > **XXX**.
+4. Your Analytics Instance will start provisioning.
 
-   ![pic1](images/pic_1.png)
+   ![pic3](images/oac_creating.png)
 
-   > Note: XXX.
+   > NOTE: Provisioning an Oracle Analytics Cloud instance can take from 10 (most likely) to 40 minutes.
 
-3. Click **XXX**.
+5. We will get back to your Oracle Analytics Cloud instance later in the workshop.
 
-   ![pic2](images/pic_2.png)
-
-4. Select **XXX** and click **XXX**.
-
-   ![pic3](images/pic_3.png)
-
-5. Change the **XXX** and leave everything else as **default**.
-
-      - XXX Name: `xxx`
-
-6. Click **Next**.
-
-   ![pic4](images/pic_4.png)
-
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
-
-8. On **XXX**, create `xxxx` xxxx.
-
-      ```
-      <copy>bash command</copy>
-      ```
-
-## **STEP 3:** XXX
-
-
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
-
-   xxx.
-
-2. Go to **Menu** > **XXX** > **XXX**.
-
-   ![pic1](images/pic_1.png)
-
-   > Note: XXX.
-
-3. Click **XXX**.
-
-   ![pic2](images/pic_2.png)
-
-4. Select **XXX** and click **XXX**.
-
-   ![pic3](images/pic_3.png)
-
-5. Change the **XXX** and leave everything else as **default**.
-
-      - XXX Name: `xxx`
-
-6. Click **Next**.
-
-   ![pic4](images/pic_4.png)
-
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
-
-8. On **XXX**, create `xxxx` xxxx.
-
-      ```
-      <copy>bash command</copy>
-      ```
-
-Congratulations! You are ready to go to the next Lab!
+Congratulations! Meanwhile the OAC instance is created, you can go to the next Lab!
 
 ## **Acknowledgements**
 
