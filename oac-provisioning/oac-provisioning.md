@@ -30,7 +30,7 @@ In this lab, you will:
 
    - **OCI Native users**: represent users like you, or applications that can perform operations on OCI native services.
    - **OCI Federated Users** with Identity Cloud Service (IDCS). IDCS is a Identity Provider included with Oracle Cloud to manage Identity services beyond basic users, groups and roles capabilities. For example, OAuth2.0, Multi Factor Authentication, etc.
-   
+
    > NOTE: OAC requires a Federated user.
 
 2. Go to **Profile** on the top-right corner and make sure your user has the name **oracleidentitycloudservice/** appended before your email, like in the picture:
@@ -72,15 +72,13 @@ In this lab, you will:
 
    ![OAC Form](images/oac_form.png)
 
-4. Your Analytics Instance will start provisioning.
+   Your Analytics Instance will start provisioning.
 
    ![pic3](images/oac_creating.png)
 
    > NOTE: Provisioning an Oracle Analytics Cloud instance can take from 10 (most likely) to 40 minutes.
 
-5. We will get back to your Oracle Analytics Cloud instance later in the workshop.
-
-Congratulations! Meanwhile the OAC instance is created, you can go to the next Lab!
+   We will get back to your Oracle Analytics Cloud instance later in the workshop.
 
 ## **Acknowledgements**
 

@@ -49,8 +49,8 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 5. Type the password, confirm the password by typing it again and click **Download**.
 
-      - Password: `sailgp12345!`
-      - Confirm Password: `sailgp12345!`
+      - Password: `Oracle12345!`
+      - Confirm Password: `Oracle12345!`
 
    ![AWD Wallet Password](images/adw_wallet_password.png)
 
@@ -85,9 +85,9 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
     >
     > **Client Credentials**: Use the Browse button to upload the **wallet zip > file** that you downloaded. It will automatically extract the cwallet.sso file from this zip bundle.
     >
-    > **Username**: ADMIN
+    > **Username**: SAILOR
     >
-    > **Password**: The password that you created on the ADW instance creation at the beginning of the workshop. OracleCloud12345!
+    > **Password**: OracleCloud12345! (we specified this when we created the SAILOR user before)
     >
     > **Service Name**: Keep the default, the name of your database followed by the \_high suffix.
     >
@@ -117,7 +117,7 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
    Each record in this data set represents one second of the race for one particular team.
    At each second of the race, we can see the values of many of the sensors of the boat of each team.
 
-   You see how Oracle Analytics is profiling the columns in the data set. It creates histograms and other charts of each of the columns to quickly give you insight into what value there is in them. For example, have a look at column B_NAME. This shows you that there are 8 countries that are competing (column B_NAME). And have a look at LENGTH_RH_BOW_MM, which shows you how far the boat comes out of the water, which has values appear to hover between 0 and 1.15m above the water.
+   You see how Oracle Analytics is profiling the columns in the data set. It creates histograms and other charts of each of the columns to quickly give you insight into what value there is in them. For example, have a look at column B_NAME. This shows you that there are 8 countries that are competing (column B_NAME). And have a look at LENGTH_RH_BOW_MM, which shows you how far the boat comes out of the water, which has values appear to hover between 0 and 1.5m above the water.
 
    These graphs are a great way to quickly get a first idea about your data.
 
@@ -153,6 +153,7 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    ![Change aggregation to maximum](images/boat-speed-max.png)
 
+<!--
 8. Modify the aggregation type of TWS_MHU_TM_KM_H_1 (wind speed)
 
    Similarly, later on we'll want to obtain the Average Wind Speed.
@@ -161,8 +162,9 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
    Find the TWS_MHU_TM_KM_H_1 column and click it, then change the aggregation to "Average".
 
    ![Change aggregation to average](images/tws-average.png)
+-->
 
-9. Save the data set
+8. Save the data set
 
    Finally, click the "Save" icon and give the data set a logical name, e.g. "Race Data".
 
@@ -176,9 +178,15 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    Now you have prepared your data, you are ready to start creating some visualizations and finally get some insights!
 
+	 Now you are in the Visualization area!
+
+	 As a general note, keep in mind that you can use the Undo/Redo buttons at the top right of the screen if you make any mistake in this section.
+
+   ![Undo](images/undo.png)
+
 2. See who were the winners of the race
 
-   Find out who took the least time to go from start to finish by creating a chart on B_NAME (team name) and TIME_SAILED (the number of seconds they were sailing).
+   Let's start with our first visualization challenge: Find out who took the least time to go from start to finish by creating a chart on B_NAME (team name) and TIME_SAILED (the number of seconds they were sailing).
 
    Drag B_NAME to the canvas.
 
@@ -216,25 +224,13 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
 3. Compare maximum boat speeds
 
-   Which teams are able to sail the boat the fastest? This is only a very rough indicator, because it's not just about sailing the fastest, but also the shortest/best route. Remember, in sailing, boats can take different courses to reach the waymarks. Therefore, the shortest isn't always the fastest, and the highest speed doesn't necessarily means the fastest to reach the finish line.
+   Which teams are able to obtain the maximum speed with the boat? Let's find out!
 
-   Let's first convert the speed on the boat from knots into kilometers/hour or miles/hour (whichever you prefer). Scroll down to the bottom of the columns in the data set, here you'll see "My Calculations". Right-click it and select "Add Calculation".
+   Right click on the BOAT_SPEED_KNOTS field and choose "Create Best Visualization".
 
-   ![pic2](images/add-calculation.png)
+   ![pic2](images/visualize-knots.png)
 
-   Call the field Boat Speed KMPH (or "MIPH" if you prefer). Then drag the BOAT_SPEED_KNOTS field to the formula section.
-
-   ![pic2](images/drag-to-formula.png)
-
-   Next, add the correct multiplier. The factor for knots to KPH is 1.852. Feel free to look up the factor to convert knots to MPH instead.
-
-   ![pic2](images/formula.png)
-
-   Now visualize the newly calculated field by right clicking on "Boat Speed KPH" and choosing "Create Best Visualization".
-
-   ![pic2](images/visualize-kph.png)
-
-   This shows the maximum speed across all boats in this race. In fact, this was a new record for all SailGP races so far! Have a look at this fragment:
+   This shows the maximum speed across all boats in this race. In fact, this was a new record for all SailGP races so far! 51 knots per hour is over 94 kilometers per hour or 59 miles per hour!
 
    Now, show what the maximum speeds are for all countries, by dragging B_NAME onto the same chart.
 
@@ -249,13 +245,15 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
    ![pic2](images/sort-icon.png)
    ![pic2](images/sort-by-boat-speed.png)
 
-   In this case, the teams that have the higher maximum speed also are the teams that are finishing highest. However we have to be careful drawing any conclusions from this. Remember, in sailing the highest speed doesn't necessarily mean the best course taken.
+   In this case, the teams that have the higher maximum speed also are the teams that are finishing highest. However we have to be careful drawing any conclusions from this. Remember, in sailing the highest speed doesn't necessarily mean the best course taken, nor that you will be the winner.
 
    ![pic2](images/conclusion.png)
 
 4. Investigate how much the teams are foiling
 
    Foiling is the phenomenon where boats go fast enough to rise out of the water. Because they rise of the water, they have less water resistance, resulting in even higher speeds. Because of this, teams will always try to foil as much as possible. Let's see how well the teams are able to foil.
+
+	 ![pic2](images/f50-foiling.png)
 
    First create a calculation to calculate the percentage of time that teams are foiling. We can use the TIME_SAILED (total time to complete race) and TIME_FOILING for this. Add a calculation (right click on "My Calculations") and create the following formula. Remember that you can drag the fields in from the left to add them to the formula.
 
@@ -277,7 +275,9 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    ![pic2](images/change-sorting3.png)
 
-   We can see that, although Denmark does a good job foiling, they are still the last team to arrive.
+   We can see that, although Denmark does a good job foiling, they are still the last team to cross the finish line.
+
+	 ![pic2](images/conclusion-denmark.png)
 
    Save the project.
 
@@ -289,41 +289,47 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
 ## **STEP 4**: Investigate start performance - part 1
 
-The start of the race is very important. Often, who will win the race is decided in these crucial first moments. Teams want to position themselves as well as possible during the count down to the start signal. There are various criteria to deciding a good start, of which some are: a) being as close to the starting line as possible when the race starts and b) having the highest possible speed when the race starts.
+The start of the race is very important. Often, who will win the race is decided in these crucial first moments. Teams want to position themselves as well as possible during the count down to the start signal. For example, they try to a) be as close to the starting line when the race starts, and b) have the highest possible speed when the race starts.
+
+<!--
+To give you an impression, have a look at this video. You can see how teams are trying to get in the best possible position and with the highest speeds.
+
+   [](youtube:Gdc_C6m2ke4)
+-->
 
 1. Investigate proximity to the starting line at start signal
 
-   We'd like to use a geographical visualization to see how close they are to the starting line during the starting signal. Luckily, our data contains the geographical coordinate of each boat at each moment in the race. However, we first have to instruct Oracle Analytics Cloud to interpret our coordinates as such.
+   Our goal is to visualize the boats on a map so that we can see how close the teams are to the starting line at the star signal. Luckily, our data contains the geographical coordinate (latitude + longitude) of each boat at each moment in the race. However, we first have to instruct Oracle Analytics Cloud to interpret our coordinates as such.
 
    From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon and select "Open".
 
    ![pic2](images/open-dataset.png)
 
-   Find the "LAT" column (Be careful not to take the the "LAT_C" or "LATITUDE" columns by accident), and chance "Treat As" to Attribute.
+   Find the "LATITUDE" column, and chance "Treat As" to **Attribute**.
 
-   ![pic2](images/lat.png)
+   ![pic2](images/latitude.png)
 
    Next, click on the ribbon next to the "LAT" field and choose "Location Details".
 
-   ![pic2](images/lat2.png)
+   ![pic2](images/loc-details2.png)
 
-   Make sure that the Location Details configuration is as follows.
+   Make sure that the Location Details configuration is as follows. **It's important to press Ok, even if you don't make changes.**
 
-   ![pic2](images/lat3.png)
+   ![pic2](images/latitude3.png)
 
    Next, do the same thing for the "LON" column. Set the "Treat As" to Attribute.
 
-   ![pic2](images/lon.png)
+   ![pic2](images/longitude.png)
 
-   Change the Location Details to the following.
+   Change the Location Details to the following. **It's important to press Ok.**
 
-   ![pic2](images/lon3.png)
+   ![pic2](images/loc-details3.png)
 
    Now we're ready to create a project for this data. Save the changes to the data set if you're being asked to.
 
    ![pic2](images/create-project2.png)
 
-   Now we want to visualize our coordinates (comprised of LAT-LON). Select the LAT and LON column (use Control to select multiple columns). Then drag them to the canvas.
+   Now we want to visualize our coordinates (comprised of Latitude Longitude). Select the LATITUDE and LONGITUDE columns (use Control to select multiple columns). Then drag them to the canvas.
 
    ![pic2](images/drag-latlon.png)
 
@@ -349,9 +355,9 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic2](images/start-seconds.png)
 
-   This still isn’t great, because we cannot see the starting line. We have no context of the track (starting line, marks, et cetera).
+   This still isn’t perfect, because we cannot see the starting line. We have no context of the track (starting line, marks, et cetera).
 
-   So let's bring in the geographical information of the track. First Save, the project.
+   Our next task will be to bring in that geographical information of the track (starting line, marks, et cetera). First Save, the project.
 
    ![pic2](images/save-project3.png)
 
@@ -375,7 +381,13 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic2](images/add-custom-layer.png)
 
-5. Choose the file that you've just downloaded and check the "Trackelement" field. This field in the file identifies each of the geographical elements with a number. This number corresponds to the leg to which the element belongs. For example, trackelement=0 corresponds to the coordinates of the starting line, trackelement=1 corresponds to the coordinates of the first waypoint after the start and trackelement=7 corresponds to the coordinates of the finish line.
+5. Choose the file that you've just downloaded. Note the "Trackelement" field.
+
+   This field in the file identifies each of the geographical elements with a number. This number corresponds to the leg to which the element belongs. For example, trackelement=0 corresponds to the coordinates of the starting line, trackelement=1 corresponds to the coordinates of the first waypoint after the start and trackelement=6 corresponds to the coordinates of the finish line. See the image below for an explanation.
+
+   ![pic2](images/trackelements.png)
+
+   Check the "Trackelement" field.
 
    ![pic2](images/add-map-layer.png)
 
@@ -405,9 +417,9 @@ The start of the race is very important. Often, who will win the race is decided
 
    Now we're ready to include the geographical elements such as starting line, waypoints and finish line.
 
-1. From the Home Page, select "Project and Reports", then click the project that we created earlier (containing the analysis of the start).
+1. From the Home Page, select "Project and Reports", then click the project that we created earlier. We called it "Performance analysis" (containing the analysis of the start).
 
-   ![pic2](images/open-project.png)
+   ![pic2](images/restart-project.png)
 
 2. Click the ribbon icon next to the map configuration and choose "Add Layer".
 
@@ -425,9 +437,9 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic2](images/starting-line.png)
 
-6. Now, we can finally check how far the teams are from the starting line at the start of the race.
+6. Our next goal is to highlight the positions of the teams at the very start of the race.
 
-7. We want to highlight the positions of the teams at the very start of the race. Right click on the TIME_GRP column and select "Create Best Visualization".
+	 Right click on the TIME_GRP column and select "Create Best Visualization".
 
    ![pic2](images/time-grp-viz.png)
 
@@ -435,15 +447,21 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic2](images/select-time-grp-0.png)
 
-   We can see that Spain has crossed the starting line early (they received a penalty for this). Great Britain and Australia were very close to the starting line. Denmark and France could potentially improve their timing.
+   **Conclusion**: Already at the start, we see that the winner Great Britain is outperforming the other boats. Denmark and France could improve their timing on the start.
+	 It indeed appears that the start is very important for the final result of the race. We also notice that Spain has crossed the starting line early, they actually received a penalty for this.
 
 9. Save the project and go back to the Home Page.
+
+   ![pic2](images/save-project4.png)
 
 <!--10. Bonus: Evaluate the speed of the teams at the very start of the race. Which teams have the highest speed? Which teams could try to improve their speed at the start in the next race?-->
 
 ## **STEP 6**: Investigating maneuvers
 
-   When a boat changing the side that's facing the wind, we call this a Tack or a Gybe. Although these maneuvers are necessary to reach the their waypoints, in general teams try to minimize the number of maneuvers. The reason: Maneuvers will slow down the boat for a little while. We're oversimplifying here, because often maneuvers are also done for tactical/strategical reasons.
+   When a boat changing the side that's facing the wind, we call this a Tack or a Gybe. Although these maneuvers are necessary to reach the their waypoints, in general teams try to minimize the number of maneuvers. The reason: Maneuvers will slow down the boat for a little while.
+<!--	 
+	 We're oversimplifying here, because often maneuvers are also done for tactical/strategical reasons.
+-->
 
    Let's see how well our focus teams, Denmark and France, compare to the winner, Great Britain, as it comes to maneuvers.
 
@@ -459,7 +477,7 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic2](images/to-homepage5.png)
 
-4. Open the Project that we created earlier by clicking on "Projects" and then click on the name of the project.
+4. Open the Project that we created earlier by clicking on "Projects and Reports" and then click on "Performance analysis".
 
    ![pic2](images/open-project2.png)
 
@@ -469,11 +487,10 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic2](images/investigate-man.png)
 
-   Count the number of places where each team changes direction. Notice how the French team makes one more manoeuver compared to Great Britain?
+   **Conclusion**: Count the number of places where each team changes direction. Notice how the French team makes one more maneuver compared to Great Britain?
+	 The French team could learn from this that they could improve the planning of how they navigate the leg. We have to be careful with this conclusion though, there may be tactical/strategical advantages in tacking/gybing more than strictly necessary (e.g. compete with other boats).
 
-<!--   (OPTIONAL: ADD EXERCISE TO SEE HOW MUCH TIME THEY LOSE HERE). We can use Data Flow to extract leg time for each team-->
-
-6. Compare quality of maneuvers
+6. Compare the **quality** of maneuvers
 
    The quality of the maneuvers is also very important. Ideally, during a maneuvers the team loses as little speed as possible. This requires very good technique and coordination between the team members.
 
@@ -483,12 +500,20 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic4](images/filter-manoeuver.png)
 
-   You now see sections of 30 seconds in which the boats change their sailing course.
+   Notice how you now see only sections which the boats are changing their sailing course. Each of these sections is defined to be exactly 30 seconds, with at the center of it the moment in which the boat passes exactly through the wind.
 
-   Create a new Line Chart by clicking on the Graph icon (second icon from the top left), then drag the Line icon to just left of the existing map visualization.
+	 Now, let's look into the quality of the maneuvers.
+
+	 Create a new Line Chart by clicking on the Graph icon (second icon from the top left), then drag the Line icon to just left of the existing map visualization.
    ![pic4](images/create-line-chart.png)
 
+	 Go back to the fields by clicking on the database icon.
+
+	 ![pic4](images/back-to-fields.png)
+
    In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column LENGTH_RH_BOW_MM indicates the "flying height", the distance that the boat is out of the water. The TWA_SGP_DEG column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
+
+	 Configure the chart as follows by dragging the fields from the left to the chart configuration.
 
    ![pic4](images/configure-line-chart.png)
 
@@ -508,17 +533,16 @@ The start of the race is very important. Often, who will win the race is decided
 
    ![pic4](images/configure-reference-line.png)
 
-   Now, scroll through the resulting chart and compare how well each team manages to stay out of the water during manoevers. Notice how the French team comes in contact with the water more often. Feel free to investigate this for other legs of the race as well.
+   Now, scroll through the resulting chart and compare how well each team manages to stay out of the water during maneuvers.
 
    ![pic4](images/compare-maneuver-quality.png)
 
+	 **Conclusion:** Notice how the French team comes in contact with the water more often. So the tacking/gybing technique could be another point of attention to improve their next race.
+
 ## **STEP 6**: Conclusions
+Congratulations on completing this lab! You have made the first steps towards a full post-race analysis. This is just the beginning; The real Data Athletes at SailGP take many more data points into consideration in their analysis.
 
-Congratulations on completing this lab! You have made the first steps towards a full post-race analysis.
-You've had a glimpse of the daily challenges of a SailGP Data Athlete.
-You've also learned how to use Oracle Analytics Cloud to prepare and visualize your data yourself.
-
-Now you are ready to go to the next Lab!
+Now you are ready to go to the next Lab.
 
 ## **Acknowledgements**
 
