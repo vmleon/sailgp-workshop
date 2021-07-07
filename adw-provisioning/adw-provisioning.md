@@ -56,8 +56,8 @@ To complete this lab, you need to have the following:
 
    ![ADW Form 3](images/adw_form_3.png)
 
-      - Password: `OracleCloud12345!`
-      - Confirm password: `OracleCloud12345!`
+      - Password: `Oracle12345!`
+      - Confirm password: `Oracle12345!`
       - Access Type: `Secure access from everywhere`
       - Choose a license type: `License Included`
 
@@ -74,35 +74,6 @@ To complete this lab, you need to have the following:
    ![AWD Active](images/adw_active_state.png)
 
 7. Your Autonomous Data Warehouse is ready to use.
-
-## **STEP 2**: Download Wallet
-
-1. We will download the wallet file. The wallet file (client credentials), along with the database user ID and password, provides access to your Autonomous Database in the most secure way possible.
-
-   > NOTE: Store wallet files in a secure location. Share wallet files only with authorized users.
-
-2. On the ADW detail page, click **Download**.
-
-   ![AWD DB Connection](images/adw_db_connection.png)
-
-3. Click **Download Wallet** on Database Connection side-screen.
-
-   ![AWD Download Wallet](images/adw_download_wallet.png)
-
-4. Type the password, confirm the password by typing it again and click **Download**.
-
-      - Password: `OracleCloud12345!`
-      - Confirm Password: `OracleCloud12345!`
-
-   ![AWD Wallet Password](images/adw_wallet_password.png)
-
-5. Click **Close**. A `ZIP` file will start downloading.
-
-   ![AWD Download Wallet](images/adw_download_wallet.png)
-
-## **STEP 3**: Import Data
-
-1. XXX
 
 Please *proceed to the next lab*.
 
