@@ -28,7 +28,86 @@ In this lab, you will:
 
 1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
 
-   xxx.
+   OAC
+
+   ![pic1](images/create-dataset.png)
+
+   ![pic1](images/select-sailgp.png)
+
+   ![pic1](images/select-sail-history.png)
+
+   ![pic1](images/click-sail-history.png)
+
+   ![pic1](images/pk-attribute.png)
+
+   ![pic1](images/save-dataset2.png)
+
+   ![pic1](images/investigate-windspeed-boatspeed.png)
+
+   ![pic1](images/result1.png)
+
+   ![pic1](images/investigate-windangle-boatspeed.png)
+
+   ![pic1](images/result2.png)
+
+   ![pic1](images/add-windspeed.png)
+
+   OML
+
+   ![pic1](images/start-service-console.png)
+
+   ![pic1](images/start-manage-oml-users.png)
+
+   ![pic1](images/click-sailor.png)
+
+   ![pic1](images/save-sailor.png)
+
+   ![pic1](images/start-oml.png)
+
+   ![pic1](images/sign-in-sailor.png)
+
+   ![pic1](images/start-automl.png)
+
+   ![pic1](images/create-experiment.png)
+
+   ![pic1](images/configure-experiment.png)
+
+   ![pic1](images/service-level.png)
+
+   ![pic1](images/save-start.png)
+
+   ![pic1](images/svmg.png)
+
+   OAC
+
+   ![pic1](images/create-dataset.png)
+
+   ![pic1](images/select-sailgp.png)
+
+   ![pic1](images/windspeed.png)
+
+   ![pic1](images/click-table.png)
+
+   ![pic1](images/save-dataset.png)
+
+   ![pic1](images/to-homepage.png)
+
+   ![pic1](images/register-ml-model.png)
+
+   ![pic1](images/register3.png)
+
+   ![pic1](images/create-df.png)
+
+   ![pic1](images/select-to-predict.png)
+
+   ![pic1](images/add-apply-model.png)
+
+   ![pic1](images/save-data.png)
+
+   ![pic1](images/save-df0.png)
+
+   ![pic1](images/save-df2.png)
+
 
 2. Go to **Menu** > **XXX** > **XXX**.
 
