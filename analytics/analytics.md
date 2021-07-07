@@ -540,7 +540,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 	 **Conclusion:** Notice how the French team comes in contact with the water more often. So the tacking/gybing technique could be another point of attention to improve their next race.
 
 ## **STEP 6**: Conclusions
-Congratulations on completing this lab! You have made the first steps towards a full post-race analysis. This is just the beginning; The real Data Athletes at SailGP take many more data points into consideration in their analysis.
+Congratulations on completing this lab! You have made the first steps towards a full post-race analysis. This is just the beginning; there are many more sensor values to explore and insights to find with which we can improve the teams' performance. We hope you feel inspired to continue experimenting with this data, or even start with the analysis of your own data!
 
 Now you are ready to go to the next Lab.
 
