@@ -15,3 +15,12 @@ GRANT SELECT ANY MINING MODEL TO sailor6;
 GRANT DROP ANY MINING MODEL TO sailor6;
 GRANT SELECT ANY MINING MODEL TO sailor6;
 GRANT COMMENT ANY MINING MODEL TO sailor6;
+BEGIN
+ORDS.ENABLE_SCHEMA(p_enabled => TRUE,
+p_schema => 'SAILOR6',
+p_url_mapping_type => 'BASE_PATH',
+p_url_mapping_pattern => 'sailor6',
+p_auto_rest_auth => TRUE);
+commit;
+END;
+/
